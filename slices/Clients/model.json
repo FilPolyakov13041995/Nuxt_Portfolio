@@ -1,0 +1,48 @@
+{
+  "id": "clients",
+  "type": "SharedSlice",
+  "name": "Clients",
+  "description": "Clients",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "heading_bold": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Bold",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "icon": {
+          "type": "Select",
+          "config": {
+            "label": "Icon",
+            "placeholder": "",
+            "options": [
+              "airbnb",
+              "google",
+              "microsoft",
+              "fedex"
+            ],
+            "default_value": "airbnb"
+          }
+        }
+      }
+    }
+  ]
+}

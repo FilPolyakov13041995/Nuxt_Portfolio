@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeadingSlice;
+type PageDocumentDataSlicesSlice = ClientsSlice | HeadingSlice;
 
 /**
  * Content for Page documents
@@ -169,6 +169,80 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *Clients → Primary*
+ */
+export interface ClientsSliceDefaultPrimary {
+  /**
+   * Heading field in *Clients → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: clients.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Heading Bold field in *Clients → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: clients.primary.heading_bold
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_bold: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Clients → Items*
+ */
+export interface ClientsSliceDefaultItem {
+  /**
+   * Icon field in *Clients → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: airbnb
+   * - **API ID Path**: clients.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    "airbnb" | "google" | "microsoft" | "fedex",
+    "filled"
+  >;
+}
+
+/**
+ * Default variation for Clients Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ClientsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ClientsSliceDefaultPrimary>,
+  Simplify<ClientsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Clients*
+ */
+type ClientsSliceVariation = ClientsSliceDefault;
+
+/**
+ * Clients Shared Slice
+ *
+ * - **API ID**: `clients`
+ * - **Description**: Clients
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ClientsSlice = prismic.SharedSlice<
+  "clients",
+  ClientsSliceVariation
+>;
+
+/**
  * Primary content in *Heading → Primary*
  */
 export interface HeadingSliceDefaultPrimary {
@@ -270,6 +344,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      ClientsSlice,
+      ClientsSliceDefaultPrimary,
+      ClientsSliceDefaultItem,
+      ClientsSliceVariation,
+      ClientsSliceDefault,
       HeadingSlice,
       HeadingSliceDefaultPrimary,
       HeadingSliceVariation,
