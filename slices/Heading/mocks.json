@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading_ui_ux": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "UI/UX"
+			},
+			"heading_interaction_design": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Interaction Design"
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "I’m a designer specialising in "
+			},
+			"arrow_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"text_and": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": " and"
+			}
+		},
+		"items": []
+	}
+]

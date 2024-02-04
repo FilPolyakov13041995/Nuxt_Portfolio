@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white">
+    <div>
         <Header />
         <slot/>
         <div class="fixed inset-0 bg-gradient-to-t to-black from-gray-900 z-[-1]" />
@@ -8,10 +8,11 @@
 
 <script setup lang="ts">
 const settings = useSettings()
+const prismic = usePrismic()
 
 useSeoMeta({
     title: settings.value?.data.site_title,
     description: settings.value?.data.meta_description,
-    ogImage: settings.value?.data.og_image
+    ogImage: prismic.asImageSrc(settings.value?.data.og_image)
 })
 </script>

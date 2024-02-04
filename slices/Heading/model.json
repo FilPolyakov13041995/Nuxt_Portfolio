@@ -1,0 +1,55 @@
+{
+  "id": "heading",
+  "type": "SharedSlice",
+  "name": "Heading",
+  "description": "Heading",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "heading_ui_ux": {
+          "type": "Text",
+          "config": {
+            "label": "Heading UI UX",
+            "placeholder": ""
+          }
+        },
+        "text_and": {
+          "type": "Text",
+          "config": {
+            "label": "text and",
+            "placeholder": ""
+          }
+        },
+        "heading_interaction_design": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Interaction Design",
+            "placeholder": ""
+          }
+        },
+        "arrow_link": {
+          "type": "Link",
+          "config": {
+            "label": "Arrow Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

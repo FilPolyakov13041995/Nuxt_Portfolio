@@ -1,5 +1,5 @@
 <template>
-  <Bounded as="header" class="!py-4 md:!py-6 lg:!py-8">
+  <Bounded as="header" class="!py-4 md:!py-6 lg:!py-8 text-white">
     <div class="flex gap-4 items-center justify-between flex-col sm:flex-row">
       <Logo />
       <nav>
