@@ -20,7 +20,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="py-20 font-mono">
-      <div class="text-4xl mb-20">
+      <div class="sm:text-lg md:text-4xl w-[550px] mb-20">
         <span class="font-light tracking-wide text-neutral-500 mr-4">{{
           slice.primary.heading
         }}</span>

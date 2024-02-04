@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "cards": {
+              "type": "SharedSlice"
+            },
+            "work": {
+              "type": "SharedSlice"
+            },
             "clients": {
               "type": "SharedSlice"
             },

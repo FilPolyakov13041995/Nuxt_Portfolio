@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Selected "
+			},
+			"heading_bold": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Works"
+			}
+		},
+		"items": []
+	}
+]

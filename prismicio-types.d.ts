@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = ClientsSlice | HeadingSlice;
+type PageDocumentDataSlicesSlice =
+  | CardsSlice
+  | WorkSlice
+  | ClientsSlice
+  | HeadingSlice;
 
 /**
  * Content for Page documents
@@ -169,6 +173,108 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *Cards → Primary*
+ */
+export interface CardsSliceDefaultPrimary {
+  /**
+   * Project Title field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.project_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_title: prismic.RichTextField;
+
+  /**
+   * Description field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Description Bold field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.description_bold
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description_bold: prismic.KeyTextField;
+
+  /**
+   * Category field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.category
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  category: prismic.RichTextField;
+
+  /**
+   * Button Link field in *Cards → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Text field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Image field in *Cards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Cards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Cards*
+ */
+type CardsSliceVariation = CardsSliceDefault;
+
+/**
+ * Cards Shared Slice
+ *
+ * - **API ID**: `cards`
+ * - **Description**: Cards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
+
+/**
  * Primary content in *Clients → Primary*
  */
 export interface ClientsSliceDefaultPrimary {
@@ -327,6 +433,58 @@ export type HeadingSlice = prismic.SharedSlice<
   HeadingSliceVariation
 >;
 
+/**
+ * Primary content in *Work → Primary*
+ */
+export interface WorkSliceDefaultPrimary {
+  /**
+   * Heading field in *Work → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Heading Bold field in *Work → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.primary.heading_bold
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_bold: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Work Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WorkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Work*
+ */
+type WorkSliceVariation = WorkSliceDefault;
+
+/**
+ * Work Shared Slice
+ *
+ * - **API ID**: `work`
+ * - **Description**: Work
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkSlice = prismic.SharedSlice<"work", WorkSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -344,6 +502,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      CardsSlice,
+      CardsSliceDefaultPrimary,
+      CardsSliceVariation,
+      CardsSliceDefault,
       ClientsSlice,
       ClientsSliceDefaultPrimary,
       ClientsSliceDefaultItem,
@@ -353,6 +515,10 @@ declare module "@prismicio/client" {
       HeadingSliceDefaultPrimary,
       HeadingSliceVariation,
       HeadingSliceDefault,
+      WorkSlice,
+      WorkSliceDefaultPrimary,
+      WorkSliceVariation,
+      WorkSliceDefault,
     };
   }
 }
