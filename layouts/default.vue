@@ -2,6 +2,7 @@
     <div>
         <Header />
         <slot/>
+        <Footer />
         <div class="fixed inset-0 bg-gradient-to-t to-black from-gray-900 z-[-1]" />
     </div>
 </template>
