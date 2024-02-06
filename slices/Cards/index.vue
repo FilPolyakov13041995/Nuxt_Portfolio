@@ -15,12 +15,17 @@ defineProps(
 
 <template>
   <Bounded
-    class="!py-4 md:!py-6 lg:!py-8"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="grid grid-cols-1 md:grid-cols-2 place-items-end sm:justify-items-center md:justify-items-stretch gap-8">
-      <div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 place-items-end sm:justify-items-center md:justify-items-stretch gap-8"
+    >
+      <div
+        :class="{
+          'md:order-2': slice.variation === 'reverse',
+        }"
+      >
         <PrismicImage
           class="w-[594px] h-[490px] rounded-2xl"
           :field="slice.primary.image"
@@ -45,6 +50,9 @@ defineProps(
         />
         <div
           class="py-2 flex items-center justify-center w-[163px] h-[40px] gap-2 bg-black rounded-full border border-white"
+          :class="{
+            'bg-gradient-to-r from-purple-600 to-pink-500': slice.variation === 'reverse',
+          }"
         >
           <PrismicLink :field="slice.primary.button_link" class="text-white">{{
             slice.primary.button_text

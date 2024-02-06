@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | AboutMeSlice
   | CardsSlice
   | WorkSlice
   | ClientsSlice
@@ -173,6 +174,86 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *AboutMe → Primary*
+ */
+export interface AboutMeSliceDefaultPrimary {
+  /**
+   * Project Title field in *AboutMe → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_me.primary.project_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_title: prismic.TitleField;
+
+  /**
+   * Description field in *AboutMe → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_me.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Description Bold field in *AboutMe → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_me.primary.description_bold
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description_bold: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *AboutMe → Items*
+ */
+export interface AboutMeSliceDefaultItem {
+  /**
+   * Images field in *AboutMe → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_me.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutMe Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutMeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutMeSliceDefaultPrimary>,
+  Simplify<AboutMeSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *AboutMe*
+ */
+type AboutMeSliceVariation = AboutMeSliceDefault;
+
+/**
+ * AboutMe Shared Slice
+ *
+ * - **API ID**: `about_me`
+ * - **Description**: AboutMe
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutMeSlice = prismic.SharedSlice<
+  "about_me",
+  AboutMeSliceVariation
+>;
+
+/**
  * Primary content in *Cards → Primary*
  */
 export interface CardsSliceDefaultPrimary {
@@ -261,9 +342,97 @@ export type CardsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → Primary*
+ */
+export interface CardsSliceReversePrimary {
+  /**
+   * Project Title field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.project_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_title: prismic.RichTextField;
+
+  /**
+   * Description field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Description Bold field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.description_bold
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description_bold: prismic.KeyTextField;
+
+  /**
+   * Category field in *Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.category
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  category: prismic.RichTextField;
+
+  /**
+   * Button Link field in *Cards → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Text field in *Cards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Image field in *Cards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Reverse variation for Cards Slice
+ *
+ * - **API ID**: `reverse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceReverse = prismic.SharedSliceVariation<
+  "reverse",
+  Simplify<CardsSliceReversePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
-type CardsSliceVariation = CardsSliceDefault;
+type CardsSliceVariation = CardsSliceDefault | CardsSliceReverse;
 
 /**
  * Cards Shared Slice
@@ -502,10 +671,17 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      AboutMeSlice,
+      AboutMeSliceDefaultPrimary,
+      AboutMeSliceDefaultItem,
+      AboutMeSliceVariation,
+      AboutMeSliceDefault,
       CardsSlice,
       CardsSliceDefaultPrimary,
+      CardsSliceReversePrimary,
       CardsSliceVariation,
       CardsSliceDefault,
+      CardsSliceReverse,
       ClientsSlice,
       ClientsSliceDefaultPrimary,
       ClientsSliceDefaultItem,

@@ -4,6 +4,7 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
+  about_me: defineAsyncComponent(() => import("./AboutMe/index.vue")),
   cards: defineAsyncComponent(() => import("./Cards/index.vue")),
   clients: defineAsyncComponent(() => import("./Clients/index.vue")),
   heading: defineAsyncComponent(() => import("./Heading/index.vue")),
