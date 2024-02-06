@@ -17,9 +17,8 @@ defineProps(
   <Bounded
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    
   >
-    <div class="grid grid-cols-4 grid-rows-2 gap-4 place-items-center">
+    <div class="grid grid-cols-4 grid-rows-2 gap-10 place-items-center">
       <div class="col-span-2 row-span-2">
         <PrismicRichText
           :field="slice.primary.project_title"
@@ -32,9 +31,7 @@ defineProps(
           {{ slice.primary.description_bold }}</span
         >
       </div>
-      <div v-for="(item, index) in slice.items" :key="item.images ?? ''"
-        class="grid grid-cols-1"
-      >
+      <div v-for="(item, index) in slice.items" :key="item.images ?? ''">
         <div>
           <PrismicImage
             v-if="index === 0"

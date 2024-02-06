@@ -10,7 +10,11 @@
           >
             <PrismicLink
               :field="item.link"
-              :class="{ 'mr-8': index !== settings.data.navigation.length - 1 }"
+              :class="{
+                'mr-8': index !== settings.data.navigation.length - 1,
+                'text-pink-400': $route.path === item.link.url,
+                'border-b-2 border-white py-2': $route.path === item.link.url
+              }"
             >
               {{ item.label.toUpperCase() }}
             </PrismicLink>
@@ -23,4 +27,5 @@
 
 <script setup lang="ts">
 const settings = useSettings();
+
 </script>
