@@ -13,7 +13,8 @@
               :class="{
                 'mr-8': index !== settings.data.navigation.length - 1,
                 'text-pink-400': $route.path === item.link.url,
-                'border-b-2 border-white py-2': $route.path === item.link.url
+                'border-b-2 border-white py-2': $route.path === item.link.url,
+                'transition-all duration-150': true,
               }"
             >
               {{ item.label.toUpperCase() }}
