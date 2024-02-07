@@ -19,7 +19,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="py-10 font-mono text-4xl">
+    <div class="py-10 font-mono text-4xl ">
       <span class="font-light tracking-wide text-neutral-500 mr-4">{{ slice.primary.heading }}</span>
       <span class="font-semibold tracking-wide text-white">{{ slice.primary.heading_bold }}</span>
     </div>

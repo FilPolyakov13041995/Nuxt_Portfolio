@@ -18,17 +18,17 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="text-center py-52 px-20 font-mono sm:text-4xl md:text-5xl ">
-      <span class="font-light tracking-wide text-neutral-500 mr-4">{{
+    <div class="text-center py-52 px-20 font-mono">
+      <span class="font-light tracking-wide text-neutral-500 mr-4 sm:text-2xl lg:text-5xl">{{
         slice.primary.heading
       }}</span>
-      <span class="font-semibold text-white mr-4">{{
+      <span class="font-semibold text-white mr-4 sm:text-2xl lg:text-5xl">{{
         slice.primary.heading_ui_ux
       }}</span>
-      <span class="font-light tracking-wide text-neutral-400">{{
+      <span class="font-light tracking-wide text-neutral-400 sm:text-2xl lg:text-5xl">{{
         slice.primary.text_and
       }}</span>
-      <div class="font-semibold pt-4 text-white">
+      <div class="font-semibold pt-4 text-white sm:text-2xl lg:text-5xl">
         {{ slice.primary.heading_interaction_design }}
       </div>
     </div>
