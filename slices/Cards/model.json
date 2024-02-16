@@ -28,13 +28,6 @@
             "placeholder": ""
           }
         },
-        "description_bold": {
-          "type": "Text",
-          "config": {
-            "label": "Description Bold",
-            "placeholder": ""
-          }
-        },
         "category": {
           "type": "StructuredText",
           "config": {
@@ -91,13 +84,6 @@
           "type": "Text",
           "config": {
             "label": "Description",
-            "placeholder": ""
-          }
-        },
-        "description_bold": {
-          "type": "Text",
-          "config": {
-            "label": "Description Bold",
             "placeholder": ""
           }
         },

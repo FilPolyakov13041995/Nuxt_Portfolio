@@ -27,13 +27,6 @@
             "label": "Description",
             "placeholder": ""
           }
-        },
-        "description_bold": {
-          "type": "Text",
-          "config": {
-            "label": "Description Bold",
-            "placeholder": ""
-          }
         }
       },
       "items": {

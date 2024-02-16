@@ -196,16 +196,6 @@ export interface AboutMeSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
-
-  /**
-   * Description Bold field in *AboutMe → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_me.primary.description_bold
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description_bold: prismic.KeyTextField;
 }
 
 /**
@@ -276,16 +266,6 @@ export interface CardsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
-
-  /**
-   * Description Bold field in *Cards → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.primary.description_bold
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description_bold: prismic.KeyTextField;
 
   /**
    * Category field in *Cards → Primary*
@@ -364,16 +344,6 @@ export interface CardsSliceReversePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
-
-  /**
-   * Description Bold field in *Cards → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.primary.description_bold
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description_bold: prismic.KeyTextField;
 
   /**
    * Category field in *Cards → Primary*
@@ -456,16 +426,6 @@ export interface ClientsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   heading: prismic.KeyTextField;
-
-  /**
-   * Heading Bold field in *Clients → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: clients.primary.heading_bold
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading_bold: prismic.KeyTextField;
 }
 
 /**
@@ -532,36 +492,6 @@ export interface HeadingSliceDefaultPrimary {
   heading: prismic.KeyTextField;
 
   /**
-   * Heading UI UX field in *Heading → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading.primary.heading_ui_ux
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading_ui_ux: prismic.KeyTextField;
-
-  /**
-   * text and field in *Heading → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading.primary.text_and
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  text_and: prismic.KeyTextField;
-
-  /**
-   * Heading Interaction Design field in *Heading → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: heading.primary.heading_interaction_design
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading_interaction_design: prismic.KeyTextField;
-
-  /**
    * Arrow Link field in *Heading → Primary*
    *
    * - **Field Type**: Link
@@ -615,16 +545,6 @@ export interface WorkSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   heading: prismic.KeyTextField;
-
-  /**
-   * Heading Bold field in *Work → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: work.primary.heading_bold
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading_bold: prismic.KeyTextField;
 }
 
 /**

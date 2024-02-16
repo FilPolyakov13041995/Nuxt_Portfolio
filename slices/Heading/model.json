@@ -19,27 +19,6 @@
             "placeholder": ""
           }
         },
-        "heading_ui_ux": {
-          "type": "Text",
-          "config": {
-            "label": "Heading UI UX",
-            "placeholder": ""
-          }
-        },
-        "text_and": {
-          "type": "Text",
-          "config": {
-            "label": "text and",
-            "placeholder": ""
-          }
-        },
-        "heading_interaction_design": {
-          "type": "Text",
-          "config": {
-            "label": "Heading Interaction Design",
-            "placeholder": ""
-          }
-        },
         "arrow_link": {
           "type": "Link",
           "config": {

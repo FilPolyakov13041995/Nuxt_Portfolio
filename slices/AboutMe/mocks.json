@@ -18,11 +18,6 @@
 				"__TYPE__": "FieldContent",
 				"type": "Text",
 				"value": "I am a UI/UX designer who is passionate about creating beautiful and joyful digital"
-			},
-			"description_bold": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "experiences. Besides design, I love music, games and travelling."
 			}
 		},
 		"items": [
@@ -125,7 +120,6 @@
 					[
 						"images",
 						{
-							"__TYPE__": "ImageContent",
 							"url": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxmcnVpdHxlbnwwfHx8fDE3MDcxNTMxNTR8MA&ixlib=rb-4.0.3&q=85",
 							"alt": "sliced orange fruit on white ceramic plate",
 							"origin": {
@@ -144,6 +138,8 @@
 									"y": 0
 								}
 							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					]

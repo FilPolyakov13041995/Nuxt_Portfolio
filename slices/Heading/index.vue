@@ -19,18 +19,9 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="text-center py-52 px-20 font-mono">
-      <span class="font-light tracking-wide text-neutral-500 mr-4 sm:text-2xl lg:text-5xl">{{
+      <h1 class="font-light tracking-wide text-slate-100 sm:text-2xl lg:text-5xl">{{
         slice.primary.heading
-      }}</span>
-      <span class="font-semibold text-white mr-4 sm:text-2xl lg:text-5xl">{{
-        slice.primary.heading_ui_ux
-      }}</span>
-      <span class="font-light tracking-wide text-neutral-400 sm:text-2xl lg:text-5xl">{{
-        slice.primary.text_and
-      }}</span>
-      <div class="font-semibold pt-4 text-white sm:text-2xl lg:text-5xl">
-        {{ slice.primary.heading_interaction_design }}
-      </div>
+      }}</h1>
     </div>
     <PrismicLink :field="slice.primary.arrow_link">
       <IconsArrow class="w-10 h-10 text-white mx-auto" />

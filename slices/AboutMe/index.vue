@@ -24,12 +24,9 @@ defineProps(
           :field="slice.primary.project_title"
           class="font-semibold leading-6 tracking-wider text-white pb-4 text-2xl"
         />
-        <span class="font-light text-3xl text-neutral-500 mr-2">{{
-          slice.primary.description
-        }}</span>
-        <span class="font-semibold tracking-wide text-white text-3xl">
-          {{ slice.primary.description_bold }}</span
-        >
+        <p class="font-light text-3xl text-gray-300">
+          {{ slice.primary.description }}
+        </p>
       </div>
       <div v-for="(item, index) in slice.items" :key="item.images ?? ''">
         <div>

@@ -34,11 +34,6 @@
 				"type": "Text",
 				"value": "Lorem ipsum dolor sit amet, consectetur"
 			},
-			"description_bold": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "adipiscing elit. Ultrices lorem non feugiat egestas amet."
-			},
 			"category": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -96,11 +91,6 @@
 			"description": {
 				"__TYPE__": "FieldContent",
 				"value": "saved",
-				"type": "Text"
-			},
-			"description_bold": {
-				"__TYPE__": "FieldContent",
-				"value": "family",
 				"type": "Text"
 			},
 			"category": {

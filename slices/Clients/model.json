@@ -18,13 +18,6 @@
             "label": "Heading",
             "placeholder": ""
           }
-        },
-        "heading_bold": {
-          "type": "Text",
-          "config": {
-            "label": "Heading Bold",
-            "placeholder": ""
-          }
         }
       },
       "items": {

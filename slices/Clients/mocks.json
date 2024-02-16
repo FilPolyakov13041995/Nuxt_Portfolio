@@ -3,15 +3,10 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"heading_bold": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "the clients I have designed for"
-			},
 			"heading": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Some of "
+				"value": "Some of"
 			}
 		},
 		"items": [

@@ -37,12 +37,9 @@ defineProps(
           class="font-semibold text-base leading-6 tracking-wider text-white pb-4"
         />
         <div class="pb-6">
-          <span class="mr-2 font-light text-3xl leading-10 text-neutral-500">{{
+          <p class="font-light text-3xl leading-10 text-gray-300">{{
             slice.primary.description
-          }}</span>
-          <span class="font-semibold text-3xl text-white">{{
-            slice.primary.description_bold
-          }}</span>
+          }}</p>
         </div>
         <PrismicRichText
           :field="slice.primary.category"

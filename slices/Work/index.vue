@@ -11,6 +11,7 @@ defineProps(
     "context",
   ]),
 );
+
 </script>
 
 <template>
@@ -20,8 +21,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="py-10 font-mono text-4xl ">
-      <span class="font-light tracking-wide text-neutral-500 mr-4">{{ slice.primary.heading }}</span>
-      <span class="font-semibold tracking-wide text-white">{{ slice.primary.heading_bold }}</span>
+      <h3 class="font-light tracking-wide text-slate-100">{{ slice.primary.heading }}</h3>
     </div>
   </Bounded>
 </template>
