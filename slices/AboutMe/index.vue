@@ -18,45 +18,38 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="grid md:grid-cols-4 grid-rows-2 gap-10 place-items-center">
-      <div class="col-span-2 row-span-2">
+    <div class="text-white grid grid-cols-1 md:grid-cols-3 gap-4 items-center mx-auto">
+      <div class="col-span-1 row-span-2">
         <PrismicRichText
           :field="slice.primary.project_title"
-          class="font-semibold leading-6 tracking-wider text-white pb-4 text-2xl"
+          class="font-semibold leading-6 tracking-wider text-center md:text-left pb-4 text-2xl"
         />
-        <p class="font-light text-3xl text-gray-300">
+        <p class="font-light text-xl md:text-3xl">
           {{ slice.primary.description }}
         </p>
       </div>
-      <div v-for="(item, index) in slice.items" :key="item.images ?? ''">
-        <div>
-          <PrismicImage
-            v-if="index === 0"
-            :field="item.images"
-            class="w-[282px] h-[408px] object-cover rounded-xl"
-          />
-        </div>
-        <div>
-          <PrismicImage
-            v-if="index === 1"
-            :field="item.images"
-            class="w-[282px] h-[408px] object-cover rounded-xl"
-          />
-        </div>
-        <div>
-          <PrismicImage
-            v-if="index === 2"
-            class="w-[282px] h-[408px] object-cover rounded-xl"
-            :field="item.images"
-          />
-        </div>
-        <div>
-          <PrismicImage
-            v-if="index === 3"
-            class="w-[282px] h-[408px] object-cover rounded-xl"
-            :field="item.images"
-          />
-        </div>
+      <div class="w-full h-full"
+        v-for="(item, index) in slice.items" :key="item.images ?? ''">
+        <PrismicImage
+          v-if="index === 0"
+          :field="item.images"
+          class="w-full h-full rounded-2xl"
+        />
+        <PrismicImage
+          v-if="index === 1"
+          :field="item.images"
+          class="w-full h-full rounded-2xl"
+        />
+        <PrismicImage
+          v-if="index === 2"
+          class="w-full h-full rounded-2xl"
+          :field="item.images"
+        />
+        <PrismicImage
+          v-if="index === 3"
+          class="w-full h-full rounded-2xl"
+          :field="item.images"
+        />
       </div>
     </div>
   </Bounded>

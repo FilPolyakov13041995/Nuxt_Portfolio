@@ -19,7 +19,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div
-      class="grid grid-cols-1 md:grid-cols-2 place-items-end sm:justify-items-center md:justify-items-stretch gap-8"
+      class="grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-end gap-8"
     >
       <div
         :class="{
@@ -27,28 +27,31 @@ defineProps(
         }"
       >
         <PrismicImage
-          class="w-[594px] h-[490px] rounded-2xl"
+          class="w-full h-auto rounded-2xl"
           :field="slice.primary.image"
         />
       </div>
       <div>
         <PrismicRichText
           :field="slice.primary.project_title"
-          class="font-semibold text-base leading-6 tracking-wider text-white pb-4"
+          class="font-semibold text-center md:text-left text-base leading-6 tracking-wider text-white pb-4"
         />
         <div class="pb-6">
-          <p class="font-light text-3xl leading-10 text-gray-300">{{
-            slice.primary.description
-          }}</p>
+          <p
+            class="text-xl lg:text-2xl text-center md:text-left leading-7 md:leading-10 text-gray-300"
+          >
+            {{ slice.primary.description }}
+          </p>
         </div>
         <PrismicRichText
           :field="slice.primary.category"
-          class="font-light text-neutral-500 text-lg leading-6 pb-8"
+          class="text-neutral-500 text-center md:text-left text-lg leading-6 pb-8"
         />
         <div
-          class="py-2 flex items-center justify-center w-[163px] h-[40px] gap-2 bg-black rounded-full border border-white"
+          class="py-2 flex items-center justify-center w-[163px] h-[40px] gap-2 bg-black rounded-full border border-white mx-auto md:mx-0"
           :class="{
-            'bg-gradient-to-r from-purple-600 to-pink-500': slice.variation === 'reverse',
+            'bg-gradient-to-r from-purple-600 to-pink-500':
+              slice.variation === 'reverse',
           }"
         >
           <PrismicLink :field="slice.primary.button_link" class="text-white">{{

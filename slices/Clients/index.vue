@@ -20,12 +20,12 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="py-20 font-mono">
-      <div class="sm:text-lg md:text-4xl lg:w-[550px] mb-20">
-        <h3 class="font-light tracking-wide text-slate-100">{{
+      <div class="mb-20">
+        <h3 class="tracking-wide text-2xl md:text-4xl text-center md:text-left text-slate-100">{{
           slice.primary.heading
         }}</h3>
       </div>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-4">
         <div v-for="item in slice.items" :key="item.icon ?? ''">
           <div v-if="item.icon">
             <IconClients :name="item.icon" />

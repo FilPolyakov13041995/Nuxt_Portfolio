@@ -1,9 +1,9 @@
 <template>
   <div class="text-white py-20">
-    <h2 class="font-mono font-light text-neutral-500 text-5xl text-center py-3">
+    <h2 class="font-mono font-light text-neutral-500 text-3xl md:text-5xl text-center py-3">
       Get <span class="font-semibold text-white">in Touch.</span>
     </h2>
-    <p class="font-mono font-light text-lg text-neutral-500 text-center pb-14">
+    <p class="font-mono font-light text-base md:text-lg text-neutral-500 text-center pb-14">
       So that we can talk more about...
     </p>
     <div class="flex justify-center gap-14 pb-20">

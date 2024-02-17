@@ -20,8 +20,8 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="py-10 font-mono text-4xl ">
-      <h3 class="font-light tracking-wide text-slate-100">{{ slice.primary.heading }}</h3>
+    <div class="py-10 font-mono">
+      <h3 class="tracking-wide text-center md:text-left text-2xl md:text-4xl text-slate-100">{{ slice.primary.heading }}</h3>
     </div>
   </Bounded>
 </template>

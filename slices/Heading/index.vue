@@ -19,12 +19,14 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="text-center py-52 px-20 font-mono">
-      <h1 class="font-light tracking-wide text-slate-100 sm:text-2xl lg:text-5xl">{{
-        slice.primary.heading
-      }}</h1>
+      <h1 class="tracking-wide text-3xl md:text-4xl lg:text-5xl text-slate-100">
+        {{ slice.primary.heading }}
+      </h1>
     </div>
-    <PrismicLink :field="slice.primary.arrow_link">
-      <IconsArrow class="w-10 h-10 text-white mx-auto" />
-    </PrismicLink>
+    <div class="flex justify-center">
+      <PrismicLink :field="slice.primary.arrow_link">
+        <IconsArrow class="inline-block w-10 h-10 text-white" />
+      </PrismicLink>
+    </div>
   </Bounded>
 </template>
