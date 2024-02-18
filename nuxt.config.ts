@@ -2,7 +2,7 @@ import { repositoryName } from './slicemachine.config.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: false,
+  devtools: false as any,
 
   app: {
     head: {
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/css/tailwind.css'],
-  modules: ['@nuxtjs/prismic', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/prismic', 'nuxt-quasar-ui', '@nuxtjs/tailwindcss'],
 
   prismic: {
     endpoint: 'my-new-site-prismic',
