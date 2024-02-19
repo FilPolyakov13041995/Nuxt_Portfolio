@@ -11,66 +11,69 @@ defineProps(
   ])
 );
 
-const slide = ref(1)
+const slide = ref(1);
+const name = ref("");
+const email = ref("");
 
+const submitForm = async () => {
+  const data = {
+    name: name.value,
+    email: email.value,
+  };
+  try {
+    const response = await fetch(
+      "https://my-new-site-prismic.cdn.prismic.io/api/v2",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    if (response.ok) {
+      console.log("Данные успешно отправлены");
+    } else {
+      console.error("Произошла ошибка при отправке данных");
+    }
+  } catch (error) {
+    console.error("Произошла ошибка при отправке данных", error);
+  }
+};
 </script>
 
-
-
-
 <template>
-
   <Bounded
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-
-  <div
-      class="text-white grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center"
-    >
-      <div>
-        <PrismicRichText
-          :field="slice.primary.project_title"
-          class="font-semibold leading-6 tracking-wider text-center md:text-left pb-4 text-2xl"
-        />
-        <p class="font-light text-xl md:text-3xl">
-          {{ slice.primary.description }}
-        </p>
-      </div>
-      <div class="w-2/3">
-        <q-carousel
-          v-model="slide"
-          transition-prev="scale"
-          transition-next="scale"
-          swipeable
-          animated
-          control-type="flat"
-          control-color="white"
-          navigation
-          arrows
-          height="auto"
-          class="bg-black first-line:text-white  rounded-2xl"
-        >
-          <template v-for="(item, index) in slice.items" :key="item.images ?? index" >
-            <q-carousel-slide v-if="index < 3" :name="index"  :key="index" class="column no-wrap flex-center p-0">
-              <div class="text-center">
-                <PrismicImage :field="item.images" class=" w-full" />
-              </div>
-            </q-carousel-slide>
-          </template>
-        </q-carousel>
-      </div>
-      <!-- <div
-        class="w-full h-full"
+    <div class="text-white py-7">
+      <PrismicRichText
+        :field="slice.primary.project_title"
+        class="font-semibold leading-6 tracking-wider text-center md:text-left pb-4 text-2xl"
+      />
+      <p class="font-light text-xl md:text-3xl">
+        {{ slice.primary.description }}
+      </p>
+    </div>
+    <div class="flex justify-center md:justify-between gap-2">
+      <div
+        class="w-80 md:w-72 h-[500px]"
         v-for="(item, index) in slice.items"
         :key="index ?? ''"
       >
         <PrismicImage
           v-if="index < 4"
           :field="item.images"
-          class="w-full h-full rounded-2xl"
+          class="w-full h-full rounded-xl"
         />
-      </div> -->
+      </div>
+
+      <!-- <form @submit.prevent="submitForm" class="text-black">
+        <input type="text" v-model="name" placeholder="Ваше имя" />
+        <input type="email" v-model="email" placeholder="Email" />
+        <button class="text-white" type="submit">Отправить</button>
+      </form> -->
     </div>
   </Bounded>
 </template>
