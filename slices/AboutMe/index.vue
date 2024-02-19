@@ -11,35 +11,12 @@ defineProps(
   ])
 );
 
-const slide = ref(1);
-const name = ref("");
-const email = ref("");
+const { client } = usePrismic();
+const { data: about } = useAsyncData("about", () =>
+  client.getByUID("page", "about")
+);
 
-const submitForm = async () => {
-  const data = {
-    name: name.value,
-    email: email.value,
-  };
-  try {
-    const response = await fetch(
-      "https://my-new-site-prismic.cdn.prismic.io/api/v2",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-    if (response.ok) {
-      console.log("Данные успешно отправлены");
-    } else {
-      console.error("Произошла ошибка при отправке данных");
-    }
-  } catch (error) {
-    console.error("Произошла ошибка при отправке данных", error);
-  }
-};
+
 </script>
 
 <template>

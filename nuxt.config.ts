@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     endpoint: 'my-new-site-prismic',
     preview: '/api/preview',
     clientConfig: {
+      accessToken: process.env.PRISMIC_TOKEN,
       routes: [
         {
           type: 'page',
