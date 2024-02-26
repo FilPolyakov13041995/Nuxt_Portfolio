@@ -18,8 +18,8 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="text-center py-52 px-20 font-mono">
-      <h1 class="tracking-wide text-3xl md:text-4xl lg:text-5xl text-slate-100">
+    <div class="text-center py-36 sm:py-52 px-10 sm:px-20 font-mono">
+      <h1 class="tracking-wide text-2xl md:text-4xl lg:text-5xl text-slate-100">
         {{ slice.primary.heading }}
       </h1>
     </div>

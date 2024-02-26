@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { type Content } from "@prismicio/client";
+import AOS from "aos";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  AOS.init();
+})
 
 defineProps(
   getSliceComponentProps<Content.AboutMeSlice>([
@@ -15,16 +20,15 @@ const { client } = usePrismic();
 const { data: about } = useAsyncData("about", () =>
   client.getByUID("page", "about")
 );
-
-
 </script>
 
 <template>
   <Bounded
+    class="overflow-x-hidden"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="text-white py-7">
+    <div data-aos="fade-right" class="text-white py-7 md:w-2/3">
       <PrismicRichText
         :field="slice.primary.project_title"
         class="font-semibold leading-6 tracking-wider text-center md:text-left pb-4 text-2xl"
@@ -33,24 +37,18 @@ const { data: about } = useAsyncData("about", () =>
         {{ slice.primary.description }}
       </p>
     </div>
-    <div class="flex justify-center md:justify-between gap-2">
+    <div data-aos="fade-left" class="flex justify-center md:justify-start gap-6">
       <div
-        class="w-80 md:w-72 h-[500px]"
+        class="w-full h-auto sm:w-72 sm:h-96"
         v-for="(item, index) in slice.items"
         :key="index ?? ''"
       >
         <PrismicImage
-          v-if="index < 4"
+          v-if="index < 3"
           :field="item.images"
           class="w-full h-full rounded-xl"
         />
       </div>
-
-      <!-- <form @submit.prevent="submitForm" class="text-black">
-        <input type="text" v-model="name" placeholder="Ваше имя" />
-        <input type="email" v-model="email" placeholder="Email" />
-        <button class="text-white" type="submit">Отправить</button>
-      </form> -->
     </div>
   </Bounded>
 </template>

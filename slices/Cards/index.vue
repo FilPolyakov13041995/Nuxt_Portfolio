@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import AOS from "aos";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  AOS.init();
+})
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
@@ -18,7 +24,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div
+    <div data-aos="fade-up"
       class="grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-end gap-8"
     >
       <div

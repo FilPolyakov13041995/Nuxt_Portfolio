@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import AOS from "aos";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  AOS.init();
+})
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
@@ -15,11 +21,11 @@ defineProps(
 
 <template>
   <Bounded
-    class="!py-4 md:!py-6 lg:!py-8"
+    class="!py-4 md:!py-6 lg:!py-8 overflow-x-hidden"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <div class="py-20 font-mono">
+    <div class="py-20 font-mono" data-aos="fade-left">
       <div class="mb-20">
         <h3 class="tracking-wide text-2xl md:text-4xl text-center md:text-left text-slate-100">{{
           slice.primary.heading
